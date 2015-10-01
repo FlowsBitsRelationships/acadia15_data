@@ -56,7 +56,7 @@ def run():
     starting = 999999999999999999999
     while starting > 0:
         try:
-            latlong = [24.6333, 46.7167] #[22.280893, 114.173035]
+            latlong = [22.280893, 114.173035]
             t = get_lots_of_tweets( latlong )
             target_path = 'twitter/%stweets.json' %(str(datetime.now()))
             #timestr = time.strftime("%Y%m%d-%H%M%S")
@@ -70,7 +70,7 @@ def run():
             # print output
             new_t = json.dumps(t)
             upload = upload_to_s3( target_path, new_t)
-            # print upload
+            #print upload
             starting += -1
         except:
             pass

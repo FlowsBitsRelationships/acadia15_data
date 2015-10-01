@@ -6,8 +6,7 @@ from boto.s3 import connect_to_region
 
 from s3_key import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
-reg = 'us-west-2'
-
+#reg = 'us-west-2'
 def upload_to_s3( target_path, data_string ):
 	""" 
 	Uploads a string to S3, located in the sg14fbr bucket at the given path. 
@@ -16,8 +15,9 @@ def upload_to_s3( target_path, data_string ):
 	This would place the json string into a file on S3 located at data/twitter/06-25-14-300.json
 	"""
 	conn = S3Connection(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+	print conn
 	#conn = connect_to_region(reg, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
-	bucket = conn.get_bucket('cddl-riyadh')
+	bucket = conn.get_bucket('flowsbits-acadia')
 	# for key in bucket.list():
 	# 	print key.name.encode('utf-8')
 	k = Key( bucket )
